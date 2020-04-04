@@ -1,0 +1,7 @@
+<launch>
+
+	<node name="car" pkg="esp32car" type="car.py" output="screen">
+
+	</node>
+
+</launch>
