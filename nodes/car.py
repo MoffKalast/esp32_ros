@@ -19,7 +19,7 @@ class ESP32:
 		self.run = True
 
 		self.ws = websocket.WebSocket()
-		self.ws.connect("ws://192.168.1.8")
+		self.ws.connect("ws://192.168.1.8:8080")
 
 		print("Connected.")
 
@@ -69,7 +69,7 @@ class ESP32:
 			while not connected:
 				try:
 					self.ws = websocket.WebSocket()
-					self.ws.connect("ws://192.168.1.8")
+					self.ws.connect("ws://192.168.1.8:8080")
 					connected = True
 				except:
 					print(sys.exc_info()[0])
