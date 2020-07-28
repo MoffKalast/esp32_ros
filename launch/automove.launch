@@ -1,0 +1,16 @@
+<launch>
+
+	<node pkg="dnn_detect" name="dnn_detect" type="dnn_detect" output="log" respawn="false">
+		<param name="image_transport" value="compressed"/>
+		<param name="publish_images" value="true" />
+		<param name="data_dir" value="$(find dnn_detect)/model"/>
+		<param name="class_names" value="background,aeroplane,bicycle,bird,boat,bottle,bus,car,cat,chair,cow,diningtable,dog,horse,motorbike,person,pottedplant,sheep,sofa,train,tvmonitor" />
+		<remap from="/camera/compressed" to="/raspicam_node/image_raw/compressed"/>
+		<remap from="/camera_info" to="/raspicam_node/camera_info"/>
+	</node>
+
+	<node name="automove" pkg="esp32car" type="automove.py" output="screen">
+		
+	</node>
+
+</launch>

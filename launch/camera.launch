@@ -12,17 +12,17 @@
         <arg name="set_camera_fps" value="30"/>
 
         <!-- set buffer queue size of frame capturing to -->
-        <arg name="buffer_queue_size" value="100" />
+        <arg name="buffer_queue_size" value="1" />
 
         <!-- throttling the querying of frames to -->
-        <arg name="fps" value="30" />
+        <arg name="fps" value="40" />
 
         <!-- setting frame_id -->
         <arg name="frame_id" value="raspicam_node" />
 
         <!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
         "file:///$(find your_camera_package)/config/your_camera.yaml" -->
-        <arg name="camera_info_url" value="" />
+        <arg name="camera_info_url" value="file:///$(find esp32car)/config/ov2640.yaml" />
 
         <!-- flip the image horizontally (mirror it) -->
         <arg name="flip_horizontal" value="false" />

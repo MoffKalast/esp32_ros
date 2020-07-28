@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 from __future__ import print_function
 
 import rospy
@@ -42,9 +43,9 @@ class ESP32:
 			motor_dir = 2
 
 		if self.turn > 0:
-			turn_dir = 1
-		elif self.turn < 0:
 			turn_dir = 2
+		elif self.turn < 0:
+			turn_dir = 1
 
 		motor_spd = int(abs(self.spd)*255)
 		turn_angle = int(abs(self.turn)*255)
