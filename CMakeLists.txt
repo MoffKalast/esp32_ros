@@ -8,10 +8,6 @@ find_package(catkin REQUIRED COMPONENTS
 	std_msgs
 )
 
-add_service_files(
-	FILES
-)
-
 catkin_python_setup()
 
 generate_messages(DEPENDENCIES std_msgs)
