@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-
-from __future__ import print_function
+#!/usr/bin/env python3
 
 import rospy
 import time
@@ -17,7 +15,6 @@ class ESP32:
 		self.spd = 0
 		self.turn = 0
 		self.update_vel = False
-		self.run = True
 
 		self.ws = websocket.WebSocket()
 		self.ws.connect("ws://192.168.4.1:8080")
@@ -26,11 +23,7 @@ class ESP32:
 
 		self.cmdsub = rospy.Subscriber("/cmd_vel", Twist, self.velocity)
 
-		self.thread = threading.Thread(target=self.update)
-		self.thread.start()
-
 	def set_motors(self):
-
 		motor_dir = 0
 		motor_spd = 0
 
@@ -66,7 +59,6 @@ class ESP32:
 			print(sys.exc_info()[0])
 
 			connected = False
-
 			while not connected:
 				try:
 					self.ws = websocket.WebSocket()
@@ -79,20 +71,14 @@ class ESP32:
 		
 
 	def update(self):
-		while self.run:
-
-			if self.update_vel:
-				self.update_vel = False
-				self.set_motors()
-
-			time.sleep(0.1)
-
+		if self.update_vel:
+			self.update_vel = False
+			self.set_motors()
 
 	def velocity(self, msg):
 		self.spd = msg.linear.x
 		self.turn = msg.angular.z
 		self.update_vel = True
-
 
 	def cleanup(self):
 		self.run = False
@@ -101,6 +87,9 @@ class ESP32:
 try:
 	esp = ESP32()
 	rospy.on_shutdown(esp.cleanup)
-	rospy.spin()
-except rospy.ROSInterruptException:
-	print("Script interrupted", file=sys.stderr)
+	rate = rospy.Rate(10)
+	while not rospy.is_shutdown():
+		esp.update()
+		rate.sleep()
+except Exception as e:
+	print(e)

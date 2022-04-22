@@ -1,24 +1,24 @@
 # ESP32 Car
 
-ESP32-CAM + RC car motor driver link to ROS.
+ESP32-CAM + L298N driver for ROS.
 
-
+![Wiring Diagram](schematic.png)
 
 ## Installation
 
 ```
 pip install websocket-client
 
-sudo apt-get install ros-kinetic-video-stream-opencv
+sudo apt-get install ros-noetic-video-stream-opencv
 ```
 
 ## Usage
 
 
 ```
-roslaunch esp32car car.launch
+roslaunch esp32_ros ackermann.launch
 
-roslaunch esp32car camera.launch
+roslaunch esp32_ros camera.launch
 
-roslaunch esp32car automove.launch
+roslaunch esp32_ros automove.launch
 ```

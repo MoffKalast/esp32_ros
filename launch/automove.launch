@@ -9,8 +9,6 @@
 		<remap from="/camera_info" to="/raspicam_node/camera_info"/>
 	</node>
 
-	<node name="automove" pkg="esp32car" type="automove.py" output="screen">
-		
-	</node>
+	<node name="automove" pkg="esp32_ros" type="automove.py" output="screen"/>
 
 </launch>

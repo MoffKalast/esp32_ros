@@ -1,11 +1,11 @@
 <package format="2">
-	<name>esp32car</name>
+	<name>esp32_ros</name>
 	<version>0.0.1</version>
-	<description>ESP32-CAM RC car drivers.</description>
+	<description>ESP32-CAM ROS driver.</description>
 
-	<maintainer email="vid.rijavec@gmail.com">Vid Rijavec</maintainer>
+	<maintainer email="asd@fg.com">MoffKalast</maintainer>
 
-	<author>Vid Rijavec</author>
+	<author>MoffKalast</author>
 
 	<license>MIT</license>
 

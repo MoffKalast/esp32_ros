@@ -1,0 +1,10 @@
+<launch>
+
+	<node name="esp32" pkg="esp32_ros" type="ackermann.py" output="screen"/>
+
+	<node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+	    <param name="speed" value="1.0" />
+	    <param name="turn" value="1.0" />
+	</node>
+	
+</launch>

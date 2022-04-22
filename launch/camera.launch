@@ -3,7 +3,7 @@
    <include file="$(find video_stream_opencv)/launch/camera.launch" >
 
         <!-- node name and ros graph name -->
-        <arg name="camera_name" value="raspicam_node" />
+        <arg name="camera_name" value="ov2640" />
 
         <!-- means video device 0, /dev/video0 -->
         <arg name="video_stream_provider" value="http://192.168.4.1:81/stream" />
@@ -15,14 +15,14 @@
         <arg name="buffer_queue_size" value="1" />
 
         <!-- throttling the querying of frames to -->
-        <arg name="fps" value="40" />
+        <arg name="fps" value="30" />
 
         <!-- setting frame_id -->
-        <arg name="frame_id" value="raspicam_node" />
+        <arg name="frame_id" value="ov2640" />
 
         <!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
         "file:///$(find your_camera_package)/config/your_camera.yaml" -->
-        <arg name="camera_info_url" value="file:///$(find esp32car)/config/ov2640.yaml" />
+        <arg name="camera_info_url" value="file:///$(find esp32_ros)/config/ov2640.yaml" />
 
         <!-- flip the image horizontally (mirror it) -->
         <arg name="flip_horizontal" value="false" />
