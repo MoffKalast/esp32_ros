@@ -6,7 +6,7 @@ ESP32-CAM + L298N driver for ROS.
 
 ## Installation
 
-Flash the firmware onto the ESP32-Cam module first and wire according to the above diagram (switch has to be closed for flashing).
+Flash the firmware onto the ESP32-Cam module first and wire according to the above diagram (switch has to be closed for flashing). Once the ESP boots it'll flash the built in LED once.
 
 ```
 pip install websocket-client
